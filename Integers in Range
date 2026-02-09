@@ -1,0 +1,11 @@
+class Solution:
+    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+        mySet = set()
+        for arr in ranges:
+            for num in range(arr[0], arr[1]+1):
+                mySet.add(num)
+        for n in range(left, right+1):
+            if n not in mySet:
+                return False
+        return True
+        
