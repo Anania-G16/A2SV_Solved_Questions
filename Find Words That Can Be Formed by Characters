@@ -1,0 +1,25 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        freq = {}
+        temp = {}
+        answer = 0
+        good = True
+        for char in chars:
+            if char not in freq:
+                freq[char] = 1
+            else:
+                freq[char] += 1
+        for word in words:
+            temp = freq.copy()
+            for char in word:
+                good = True
+                if char in temp:
+                    temp[char] -= 1
+                    if temp[char] == 0:
+                        del temp[char]
+                else:
+                    good = False
+                    break
+            if good:
+                answer += len(word)
+        return answer
