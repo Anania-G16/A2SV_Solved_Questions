@@ -1,0 +1,29 @@
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        freq = {}
+        answer = []
+        for cpdomain in cpdomains:
+            countSplitted = cpdomain.split(" ") #[900 , "google.mail.com"]
+            count = int(countSplitted[0]) #count = 900
+            firstSplitted = countSplitted[1].rsplit(".", 1) #[google.mail, com]
+            if countSplitted[1] in freq:
+                freq[countSplitted[1]] += count
+            else:
+                freq[countSplitted[1]] = count
+
+            if firstSplitted[1] in freq:
+                freq[firstSplitted[1]] += count
+            else:
+                freq[firstSplitted[1]] = count
+                
+            if "." in firstSplitted[0]:
+                secondSplitted = countSplitted[1].split(".", 1) #[google,mail.com]
+                if secondSplitted[1] in freq:
+                    freq[secondSplitted[1]] += count
+                else:
+                    freq[secondSplitted[1]] = count
+
+        for key, value in freq.items():
+            cpsubdomain = str(value) + " " + key
+            answer.append(cpsubdomain)
+        return answer
