@@ -1,0 +1,27 @@
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        myDict = {1 : "I", 5: "V", 10 : "X", 50 : "L", 100 : "C", 500 :  "D", 1000 : "M"}
+        k = 1000
+        n = 0
+        rem = 0
+        result = ""
+        while k > 0:
+            n = num // k                        
+            num = num % k    
+            if n <= 4:
+                if n == 4:                          
+                    result += myDict[k]              
+                    result += myDict[5 * k]
+                else:
+                    for i in range (n):
+                        result += myDict[k]
+            else:
+                if n == 9:
+                    result += myDict[k]
+                    result += myDict[10 * k]
+                else:
+                    result += myDict[5 * k]
+                    for i in range(n-5):
+                        result += myDict[k]
+            k = k//10
+        return result
