@@ -1,0 +1,11 @@
+class Solution:
+    def separateDigits(self, nums: List[int]) -> List[int]:
+        # for i in range (len(nums)-1,-1):
+        answer = []
+        for n in nums:
+            numStr = str(n)
+            numStrList = list(numStr)
+            for numChar in numStrList:
+                answer.append(int(numChar))
+        return answer
+
