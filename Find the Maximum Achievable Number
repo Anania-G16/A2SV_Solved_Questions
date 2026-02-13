@@ -1,0 +1,10 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        myDict = dict()
+        for i in range (len(s)):
+            myDict[indices[i]] = s[i]
+        numList = list(s)
+        for key in myDict.keys():
+            numList[key] = myDict[key]
+        newStr = "".join(numList)
+        return newStr
