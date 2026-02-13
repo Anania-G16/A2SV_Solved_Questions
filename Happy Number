@@ -1,0 +1,18 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        mySet = set()
+        temp = 0
+        while n not in mySet:
+            if (n == 1):
+                return True
+            mySet.add(n)
+            temp = 0
+            while n > 0:
+                rem = n % 10
+                temp += rem ** 2
+                n //= 10
+            n = temp
+        return False
+
+
+        
