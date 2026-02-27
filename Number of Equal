@@ -1,0 +1,11 @@
+from collections import Counter
+n, m = list(map(int, input().split()))
+arr1 = list(map(int, input().split()))
+arr2 = list(map(int, input().split()))
+freq1 = Counter(arr1)
+freq2 = Counter(arr2)
+count = 0
+for key in freq1.keys():
+    if key in freq2:
+        count += freq1[key] * freq2[key]
+print(count)
