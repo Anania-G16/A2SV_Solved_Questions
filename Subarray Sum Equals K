@@ -1,0 +1,16 @@
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        myMap = {0 : 1}
+        running_sum = 0
+        count = 0
+        for n in nums:
+            running_sum += n
+            x = running_sum - k
+            if x in myMap:
+                count += myMap[x]
+            if running_sum not in myMap:
+                myMap[running_sum] = 1
+            else:
+                myMap[running_sum] += 1
+        return count
+            
