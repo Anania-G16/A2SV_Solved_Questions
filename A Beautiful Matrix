@@ -1,0 +1,11 @@
+matrix = []
+for _ in range(5):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+a = 0
+b = 0
+for i in range(5):
+    if 1 in matrix[i]:
+        a = i+1
+        b = matrix[i].index(1) + 1
+print(abs(b-a))
