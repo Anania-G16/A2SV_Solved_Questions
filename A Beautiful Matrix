@@ -8,4 +8,4 @@ for i in range(5):
     if 1 in matrix[i]:
         a = i+1
         b = matrix[i].index(1) + 1
-print(abs(b-a))
+print(abs(b-3) + abs(a-3))
