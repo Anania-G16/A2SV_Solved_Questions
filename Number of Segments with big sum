@@ -1,0 +1,20 @@
+n, s = list(map(int, input().split()))
+nums = list(map(int, input().split()))
+
+left = 0
+right = -1
+rsum = 0
+count = 0
+
+while right < n:
+    if rsum < s:
+        if right == n-1:
+            break
+        right += 1
+        rsum += nums[right]
+    else:
+        count += n-right
+        rsum -= nums[left]
+        left += 1
+        
+print(count)
