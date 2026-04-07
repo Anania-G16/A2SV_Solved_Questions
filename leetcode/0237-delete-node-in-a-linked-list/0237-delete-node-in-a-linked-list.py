@@ -10,9 +10,7 @@ class Solution:
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        temp = None
         node.val = node.next.val
-        temp = node.next
         node.next = node.next.next
-        temp.next = None
+       
         
